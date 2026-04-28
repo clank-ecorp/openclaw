@@ -125,6 +125,7 @@ export function describeOfficialFallbackChannelCatalogContract(params: {
       const entry = listChannelPluginCatalogEntries({
         env: {
           ...process.env,
+          OPENCLAW_DISABLE_BUNDLED_PLUGINS: "1",
           OPENCLAW_BUNDLED_PLUGINS_DIR: "/nonexistent/bundled/plugins",
         },
         officialCatalogPaths: [catalogPath],
@@ -204,7 +205,7 @@ export function describeOfficialFallbackChannelCatalogContract(params: {
         officialCatalogPaths: [officialCatalogPath],
         env: {
           ...process.env,
-          OPENCLAW_BUNDLED_PLUGINS_DIR: path.join(dir, "dist", "extensions"),
+          OPENCLAW_DISABLE_BUNDLED_PLUGINS: "1",
         },
       }).find((item) => item.id === params.channelId);
 
@@ -242,6 +243,7 @@ export function describeOfficialFallbackChannelCatalogContract(params: {
         officialCatalogPaths: [],
         env: {
           ...process.env,
+          OPENCLAW_DISABLE_BUNDLED_PLUGINS: "1",
           OPENCLAW_BUNDLED_PLUGINS_DIR: "/nonexistent/bundled/plugins",
         },
       }).find((item) => item.id === params.channelId);

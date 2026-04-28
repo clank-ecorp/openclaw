@@ -58,6 +58,7 @@ export async function maybeRepairBundledPluginRuntimeDeps(params: {
   const effectivePluginIds = params.config
     ? resolveEffectivePluginIds({
         config: params.config,
+        bundledPluginsDir,
         env: {
           ...env,
           OPENCLAW_BUNDLED_PLUGINS_DIR: bundledPluginsDir,
